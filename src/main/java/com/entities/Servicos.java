@@ -1,11 +1,11 @@
 package com.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.antlr.v4.runtime.misc.NotNull;
 
 @Table(name = "servicos")
 @Entity(name = "servicos")
@@ -14,9 +14,14 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Servicos {
     // Classe genérica para representar um serviço
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotNull
     private String descricao;
+    @NotNull
     private double valor;
+    @NotNull
     private String duracao;
 
 
